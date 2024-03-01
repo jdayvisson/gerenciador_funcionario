@@ -17,7 +17,8 @@ public class Main {
             System.out.println("     3. Editar Funcionário");
             System.out.println("     4. Remover Funcionário");
             System.out.println("     5. Listar por Departamento");
-            System.out.println("     6. Sair");
+            System.out.println("     6. Salario por Departamento");
+            System.out.println("     7. Sair");
             System.out.print("\n     Escolha uma das opção: ");
             int opcao = scanner.nextInt();
 
@@ -76,6 +77,15 @@ public class Main {
                     gerenciador.listarPorDepartamento(departamentoLista);
                     break;
                 case 6:
+                    if (gerenciador.isEmpty()) {
+                        System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+                        break;
+                    }
+                    System.out.print("     DEPARTAMENTO: ");
+                    departamento = scanner.next();
+                    gerenciador.salarioPorDepartamento(departamento);
+                    break;
+                case 7:
                     System.out.println("\n     PROGRAMA FINALIZADO! \n     OBRIGADO!");
                     continuar = false;
                     break;

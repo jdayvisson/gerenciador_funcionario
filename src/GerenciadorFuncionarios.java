@@ -67,6 +67,22 @@ public class GerenciadorFuncionarios {
         }
     }
 
+    public void salarioPorDepartamento(String departamento) {
+        if (funcionarios.isEmpty()) {
+            System.out.println("     Você ainda não cadastrou nenhum funcionário.");
+            return;
+        }
+        double total = 0;
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getDepartamento().equalsIgnoreCase(departamento)) {
+                total += funcionario.getSalario();
+                System.out.println("     " + funcionario.getNome() + ": R$" + funcionario.getSalario());
+
+            }
+        }
+        System.out.println("     O salario total do departamento: R$ " + total);
+    }
+
     public void adicionarDepartamento(Departamento departamento) {
         this.departamentos.add(departamento);
     }
