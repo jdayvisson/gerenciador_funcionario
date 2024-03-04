@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,24 +7,31 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
 
+        Cores cor = new Cores(); // IMPORTAÇÃO DA CLASS DAS CORES #JOTA
+
+
+
+
+
         System.out.println
                 ("\n\n     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n" +
-                        "     |    ********** SISTEMA DE GERENCIAMENTO DE FUNCIONARIO **********    |\n" +
+                        "     |    ++++++++++ SISTEMA DE GERENCIAMENTO DE FUNCIONARIO ++++++++++    |\n" +
                         "     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 
         while (continuar) {
-            System.out.println("\n     1. Adicionar Funcionário");
-            System.out.println("     2. Listar Funcionários");
-            System.out.println("     3. Editar Funcionário");
-            System.out.println("     4. Remover Funcionário");
-            System.out.println("     5. Listar por Departamento");
-            System.out.println("     6. Salario por Departamento");
-            System.out.println("     7. Sair");
-            System.out.print("\n     Escolha uma das opção: ");
+            System.out.println(Cores.YELLOW_BOLD_BRIGHT + "\n     1. ADICIONAR"+ Cores.RESET + Cores.WHITE_BOLD +" Funcionário" + Cores.RESET);
+            System.out.println(Cores.YELLOW_BOLD +"     2. LISTAR"+ Cores.RESET +" Funcionários");
+            System.out.println(Cores.YELLOW_BOLD +"     3. EDITAR"+ Cores.RESET+" Funcionário");
+            System.out.println(Cores.YELLOW_BOLD +"     4. REMOVER"+ Cores.RESET+" Funcionário");
+            System.out.println(Cores.YELLOW_BOLD +"     5. LISTAR"+ Cores.RESET+" por Departamento");
+            System.out.println(Cores.YELLOW_BOLD +"     6. SALARIO"+ Cores.RESET+" por Departamento");
+            System.out.println(Cores.YELLOW_BOLD +"     7. SAIR"+ Cores.RESET);
+            System.out.print(Cores.YELLOW_BOLD +"\n     Escolha uma das opção: "+ Cores.RESET);
             int opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1:
+                    Cores cor1 = new Cores();
                     System.out.print("     NOME: ");
                     String nome = scanner.next();
                     System.out.print("     CPF: ");
@@ -43,24 +51,24 @@ public class Main {
                     break;
                 case 3:
                     if (gerenciador.isEmpty()) {
-                        System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+                        System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário para EDITAR ;(" + Cores.RESET);
                         break;
                     }
-                    System.out.print("     NOME DO FUNCIONÁRIO A SER EDITADO: ");
+                    System.out.print(Cores.YELLOW_BOLD +"     NOME DO FUNCIONÁRIO A SER EDITADO: " + Cores.RESET);
                     String nomeEdicao = scanner.next();
-                    System.out.print("     NOVO NOME: ");
+                    System.out.print(Cores.YELLOW_BOLD +"     NOVO NOME: "+ Cores.RESET);
                     String novoNome = scanner.next();
-                    System.out.print("     NOVO SALÁRIO: ");
+                    System.out.print(Cores.YELLOW_BOLD +"     NOVO SALÁRIO: "+ Cores.RESET);
                     double novoSalario = scanner.nextDouble();
-                    System.out.print("     NOVO CARGO: ");
+                    System.out.print(Cores.YELLOW_BOLD +"     NOVO CARGO: "+ Cores.RESET);
                     String novoCargo = scanner.next();
-                    System.out.print("     NOVO DEPARTAMENTO: ");
+                    System.out.print(Cores.YELLOW_BOLD +"     NOVO DEPARTAMENTO: "+ Cores.RESET);
                     String novoDepartamento = scanner.next();
                     gerenciador.editarFuncionario(nomeEdicao, novoNome, novoSalario, novoCargo, novoDepartamento);
                     break;
                 case 4:
                     if (gerenciador.isEmpty()) {
-                        System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+                        System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário para REMOVER :(" + Cores.RESET);
                         break;
                     }
                     System.out.print("     NOME DO FUNCIONÁRIO A SER REMOVIDO: ");
@@ -69,7 +77,7 @@ public class Main {
                     break;
                 case 5:
                     if (gerenciador.isEmpty()) {
-                        System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+                        System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário para LISTAR :(" + Cores.RESET);
                         break;
                     }
                     System.out.print("     DEPARTAMENTO: ");
@@ -78,7 +86,7 @@ public class Main {
                     break;
                 case 6:
                     if (gerenciador.isEmpty()) {
-                        System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+                        System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário para LISTAR :(" + Cores.RESET);
                         break;
                     }
                     System.out.print("     DEPARTAMENTO: ");

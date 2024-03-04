@@ -10,6 +10,8 @@ public class GerenciadorFuncionarios {
         this.departamentos = new ArrayList<>();
     }
 
+    Cores cor = new Cores(); // IMPORTAÇÃO DA CLASS DAS CORES #JOTA
+
     public boolean isEmpty() {
         return this.funcionarios.isEmpty();
     }
@@ -18,15 +20,17 @@ public class GerenciadorFuncionarios {
         this.funcionarios.add(funcionario);
     }
 
-    public void listarFuncionarios() {
+    public boolean listarFuncionarios() {
         if (funcionarios.isEmpty()) {
-            System.out.println("\n     Você ainda não cadastrou nenhum funcionário.");
+            Cores Cor = null;
+            System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário CADASTRADO ;(" + Cores.RESET);
         }
         else {
             for (Funcionario funcionario : funcionarios) {
                 System.out.println(funcionario);
             }
         }
+        return false;
     }
 
     public void editarFuncionario(String nome, String novoNome, double novoSalario, String novoCargo, String novoDepartamento) {
@@ -49,7 +53,7 @@ public class GerenciadorFuncionarios {
 
     public void removerFuncionario(String nome) {
         if (funcionarios.isEmpty()) {
-            System.out.println("     Você ainda não cadastrou nenhum funcionário.");
+            System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário CADASTRADO :(" + Cores.RESET);
             return;
         }
         funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase(nome));
@@ -57,7 +61,7 @@ public class GerenciadorFuncionarios {
 
     public void listarPorDepartamento(String departamento) {
         if (funcionarios.isEmpty()) {
-            System.out.println("     Você ainda não cadastrou nenhum funcionário.");
+            System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário CADASTRADO :(" + Cores.RESET);
             return;
         }
         for (Funcionario funcionario : funcionarios) {
@@ -69,7 +73,7 @@ public class GerenciadorFuncionarios {
 
     public void salarioPorDepartamento(String departamento) {
         if (funcionarios.isEmpty()) {
-            System.out.println("     Você ainda não cadastrou nenhum funcionário.");
+            System.out.println(Cores.RED_BOLD +"\n     OPS! Você não tem nenhum funcionário CADASTRADO :(" + Cores.RESET);
             return;
         }
         double total = 0;

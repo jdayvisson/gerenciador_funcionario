@@ -14,6 +14,7 @@ public class Funcionario {
         this.cargo = cargo;
         this.departamento = departamento;
     }
+    Cores cor = new Cores(); // IMPORTAÇÃO DA CLASS DAS CORES #JOTA
 
     /* Getters e Setters */
     public String getNome() {
@@ -67,13 +68,13 @@ public class Funcionario {
     @Override
     public String toString() {
         return "\n     ...DADOS DO FUNCIONÁRIO...\n" +
+                "\n     ++++++++++++++++++" +
                 "\n     NOME ----------->> " + nome +
                 "\n     CPF ------------>> " + cpf +
                 "\n     SALÁRIO -------->> " + salario +
                 "\n     MATRICULA ------>> " + matricula +
                 "\n     CARGO ------>> " + cargo +
                 "\n     DEPARTAMENTO --->> " + departamento +
-
-                "\n     ++++++++++++++++++++++++++++++";
+                "\n     ++++++++++++++++++";
     }
 }
